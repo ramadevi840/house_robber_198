@@ -1,0 +1,19 @@
+class Solution {
+    public int rob(int[] nums) {
+        int n=nums.length;
+        // here we using dp because using dp no need to calculated a value again ana again 
+        // we taking extra size to accessing final elemnt 
+
+        int a[]= new int[n+1];
+        // we putting 0 because have to ignore adjacent  elemt 
+        a[0]=0;
+// for first elemt will be same 
+        a[1]=nums[0];
+        // comparing elemts with adjacent  and ignoring adjacent elemt 
+        for(int i=2;i<=n;i++){
+          a[i]=Math.max(a[i-1],nums[i-1]+a[i-2]);
+        }
+        // returning last number which is greatest number 
+        return a[n];
+    }
+}
